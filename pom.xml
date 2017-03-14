@@ -9,6 +9,7 @@
 
     <properties>
         <org.springframework.version>4.3.6.RELEASE</org.springframework.version>
+        <org.springframework.security.version>4.2.2.RELEASE</org.springframework.security.version>
         <thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
         <jdk.version>1.8</jdk.version>
@@ -30,6 +31,27 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework.version}</version>
+        </dependency>
+        <!-- SPRINGFRAMEWORK SECURITY -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${org.springframework.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${org.springframework.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${org.springframework.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${org.springframework.security.version}</version>
         </dependency>
 
         <!-- THYMELEAF -->

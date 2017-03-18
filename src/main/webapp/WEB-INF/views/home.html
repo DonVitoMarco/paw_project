@@ -4,39 +4,49 @@
 <head>
     <title>exchange</title>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="../../css/font-awesome.css" th:href="@{/css/font-awesome.css}" rel="stylesheet" type="text/css">
+    <!-- GRID -->
     <link href="../../css/simplegrid.css" th:href="@{/css/simplegrid.css}" rel="stylesheet" type="text/css"
           media="all"/>
+    <!-- CSS -->
     <link href="../../css/main.css" th:href="@{/css/main.css}" rel="stylesheet" type="text/css" media="all"/>
 </head>
 
 <body>
 
 <div class="grid grid-pad">
-    <div class="col-1-12">
+    <div class="col-1-1">
         <div class="content">
-            <h1>EXCHANGE</h1>
+            <h1><i class="fa fa-gg-circle" aria-hidden="true"></i>EXCHANGE</h1>
         </div>
     </div>
 </div>
 
 <div class="grid grid-pad">
-    <div class="col-1-12">
+    <div class="col-1-1">
         <div class="content">
-            <p><a href="next.html" th:href="@{/next}">MENU</a></p>
+            <ul>
+                <li><a><i class="fa fa-home" aria-hidden="true"></i>HOME</a></li>
+                <li>login</li>
+            </ul>
+            <!--<p><a href="next.html" th:href="@{/next}">MENU</a></p>-->
         </div>
     </div>
 </div>
 
 <div class="grid grid-pad">
-    <div class="col-1-12">
-        <div class="content">
-            <p>LIST COMPANIES</p>
+    <div class="col-1-1">
+        <div id="main-content" class="content">
+            <p></p>
+            <div></div>
         </div>
     </div>
 </div>
 
 
+<script src="../../scripts/ws-conn.js" th:src="@{/scripts/ws-conn.js}"></script>
 
 </body>
 </html>

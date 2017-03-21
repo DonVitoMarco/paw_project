@@ -14,9 +14,4 @@ public class HomeController {
         return "home";
     }
 
-    @RequestMapping(value = "next", method = RequestMethod.GET)
-    public String next(Model model) {
-        return "next";
-    }
-
 }

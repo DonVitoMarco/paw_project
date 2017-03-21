@@ -21,6 +21,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 
 @EnableWebMvc
 @Configuration
+@Import(SecurityConfig.class)
 @ComponentScan({"pl.thewalkingcode.*"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
@@ -37,6 +38,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
         templateEngine.setEnableSpringELCompiler(true);
+        templateEngine.addDialect(new SpringSecurityDialect());
         return templateEngine;
     }
 

@@ -6,22 +6,26 @@ import pl.thewalkingcode.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
-@Repository
 public class UserRepository {
 
-    private EntityManagerFactory entityManagerFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
 
-    @Autowired
-    public UserRepository(EntityManagerFactory entityManagerFactory) {
-        this.entityManagerFactory = entityManagerFactory;
-    }
+//    private EntityManagerFactory entityManagerFactory;
+//
+//    @Autowired
+//    public UserRepository(EntityManagerFactory entityManagerFactory) {
+//        this.entityManagerFactory = entityManagerFactory;
+//    }
 
-    public User createUser(User user) {
-        EntityManager em = entityManagerFactory.createEntityManager();
-        em.persist(user);
-        em.flush();
-        return user;
-    }
+//    public User createUser(User user) {
+//        EntityManager em = entityManagerFactory.createEntityManager();
+//        em.persist(user);
+//        em.flush();
+//        return user;
+//    }
 
 }

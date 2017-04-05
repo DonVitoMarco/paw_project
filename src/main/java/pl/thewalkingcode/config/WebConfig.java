@@ -23,7 +23,7 @@ import java.util.Properties;
 
 @EnableWebMvc
 @Configuration
-@Import({SecurityConfig.class, DataSourceConfig.class})
+@Import({SecurityConfig.class})
 @ComponentScan({"pl.thewalkingcode.*"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 

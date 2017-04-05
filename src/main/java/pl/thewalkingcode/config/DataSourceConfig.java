@@ -41,8 +41,7 @@ public class DataSourceConfig {
 
     @Bean
     public DataSource dataSource() throws NamingException {
-        JndiDataSourceLookup dataSourceLookup = new JndiDataSourceLookup();
-        return dataSourceLookup.getDataSource("jdbc/ExchangeDS");
+        return (DataSource) new JndiTemplate().lookup("java:comp/env/jdbc/ExchangeDS");
     }
 
     @Bean
@@ -57,7 +56,7 @@ public class DataSourceConfig {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
-    final Properties additionalProperties() {
+    private final Properties additionalProperties() {
         final Properties hProperties = new Properties();
         hProperties.setProperty("hibernate.hbm2ddl.auto", "update");
         hProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");

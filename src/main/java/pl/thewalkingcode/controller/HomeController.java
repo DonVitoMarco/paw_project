@@ -12,8 +12,14 @@ import pl.thewalkingcode.repository.UserRepository;
 @RequestMapping(value = "/")
 public class HomeController {
 
+    @Autowired
+    public UserRepository userRepository;
+
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model) {
+        User user = new User();
+        user.setEmail("W@W .PL");
+        userRepository.createUser(user);
         return "home";
     }
 

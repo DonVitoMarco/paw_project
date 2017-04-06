@@ -1,19 +1,14 @@
 package pl.thewalkingcode.config;
 
-import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
 import org.springframework.jndi.JndiObjectFactoryBean;
-import org.springframework.jndi.JndiTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor;
-import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -33,15 +28,16 @@ public class DataSourceConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() throws NamingException {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] {"pl.thewalkingcode.model"});
+        em.setPackagesToScan(new String[]{"pl.thewalkingcode.model"});
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(additionalProperties());
         return em;
     }
 
-    @Bean
+    @Bean(destroyMethod = "")
     public DataSource dataSource() throws NamingException {
-        return (DataSource) new JndiTemplate().lookup("java:comp/env/jdbc/ExchangeDS");
+        JndiDataSourceLookup jndiDataSourceLookup = new JndiDataSourceLookup();
+        return jndiDataSourceLookup.getDataSource("java:comp/env/jdbc/ExchangeDS");
     }
 
     @Bean
@@ -56,7 +52,7 @@ public class DataSourceConfig {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
-    private final Properties additionalProperties() {
+    private Properties additionalProperties() {
         final Properties hProperties = new Properties();
         hProperties.setProperty("hibernate.hbm2ddl.auto", "update");
         hProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");

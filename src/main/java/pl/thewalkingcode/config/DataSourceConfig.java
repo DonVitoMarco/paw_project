@@ -21,7 +21,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan({"pl.thewalkingcode.*"})
-@EnableJpaRepositories(basePackages = "pl.thewalkingcode.repository")
+//@EnableJpaRepositories(basePackages = "pl.thewalkingcode.repository")
 public class DataSourceConfig {
 
     @Bean

@@ -4,6 +4,7 @@ public class NewUserDto {
 
     private String username;
     private String password;
+    private String matchingPassword;
 
     public NewUserDto() {
     }
@@ -22,6 +23,14 @@ public class NewUserDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getMatchingPassword() {
+        return matchingPassword;
+    }
+
+    public void setMatchingPassword(String matchingPassword) {
+        this.matchingPassword = matchingPassword;
     }
 
 }

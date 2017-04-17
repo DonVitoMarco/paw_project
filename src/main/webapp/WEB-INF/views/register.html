@@ -18,7 +18,38 @@
 
 <body>
 
-    <h1>REGISTER</h1>
+<div class="grid grid-pad">
+    <div class="col-1-1">
+        <div id="main-content" class="content">
+            <p>REGISTER</p>
+            <div>
+                <form name="f" th:action="@{/register}" th:object="${newUserDto}" method="POST">
+                    <table>
+                        <tr>
+                            <td>USERNAME:</td>
+                            <td><input type="text" th:field="*{username}" name="username" required="required" value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PASSWORD:</td>
+                            <td><input type="password" th:field="*{password}" name="password" required="required"
+                                       value="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>REPEAT PASSWORD:</td>
+                            <td><input type="password" th:field="*{matchingPassword}" name="matchingPassword"
+                                       required="required" value=""></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input class="btn-cls" name="submit" type="submit" value="REGISTER"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

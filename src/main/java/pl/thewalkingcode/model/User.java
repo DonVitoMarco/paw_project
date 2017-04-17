@@ -8,27 +8,18 @@ import java.util.List;
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idUser;
-
     private String username;
 
     private String password;
 
     private String email;
 
+    private Boolean enabled;
+
     @OneToMany(mappedBy = "user")
     private List<Role> roles;
 
     public User() {
-    }
-
-    public long getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(long idUser) {
-        this.idUser = idUser;
     }
 
     public String getUsername() {
@@ -61,6 +52,14 @@ public class User implements Serializable {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
 }

@@ -1,10 +1,11 @@
 package pl.thewalkingcode.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class Role {
+public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,8 +13,8 @@ public class Role {
 
     private String roleName;
 
-    @ManyToMany(mappedBy = "roles")
-    private List<User> users;
+    @ManyToOne
+    private User user;
 
     public Role() {
     }
@@ -32,6 +33,14 @@ public class Role {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

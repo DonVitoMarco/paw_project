@@ -1,4 +1,4 @@
-var ws = new WebSocket('ws://localhost:8080/exchange_websocket/websocket');
+var ws = new WebSocket('ws://localhost:8080/exchange-websocket/websocket');
 
 ws.onopen = function (msg) {
     ws.send('sync_msg')

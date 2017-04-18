@@ -13,7 +13,7 @@ public class Role implements Serializable {
 
     private String roleName;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     public Role() {

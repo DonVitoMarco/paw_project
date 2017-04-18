@@ -1,6 +1,7 @@
 package pl.thewalkingcode.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,19 +16,20 @@ import pl.thewalkingcode.service.api.UserService;
 public class RegisterController {
 
     @Autowired
-    public UserService userService;
+    @Qualifier("userService")
+    private UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String registerGet(Model model) {
         NewUserDto newUserDto = new NewUserDto();
         model.addAttribute("newUserDto", newUserDto);
-        return "login";
+        return "register";
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public String registerPost(@ModelAttribute("newUserDto") NewUserDto newUserDto) {
-        System.out.println(newUserDto.getUsername() + " " + newUserDto.getPassword());
-        return "profile";
+        userService.createUser(newUserDto);
+        return "login";
     }
 
 }

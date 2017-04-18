@@ -15,9 +15,6 @@ import javax.sql.DataSource;
 @ComponentScan({"pl.thewalkingcode.*"})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private DataSource dataSource;
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.jdbcAuthentication().dataSource(dataSource)
@@ -33,13 +30,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/profile").access("hasRole('ROLE_USER')")
-                .antMatchers("/register").permitAll()
                 .antMatchers("/").permitAll()
+                .antMatchers("/register").permitAll()
 
-                .and().formLogin().loginPage("/login").permitAll()
-                .and().logout().permitAll()
-                .and().csrf();
+                .antMatchers("/profile").access("hasRole('ROLE_USER')")
+
+                .and().formLogin().loginPage("/login")
+                .and().csrf()
+                .and().exceptionHandling().accessDeniedPage("/denied");
+
     }
 
 }

@@ -3,6 +3,7 @@ package pl.thewalkingcode.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class User implements Serializable {
@@ -14,10 +15,10 @@ public class User implements Serializable {
 
     private String email;
 
-    private Boolean enabled;
+    private boolean enabled;
 
     @OneToMany(mappedBy = "user")
-    private List<Role> roles;
+    private Set<Role> roles;
 
     public User() {
     }
@@ -46,19 +47,19 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public List<Role> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
-    public Boolean getEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 

@@ -11,9 +11,6 @@ import pl.thewalkingcode.service.api.UserService;
 @RequestMapping(value = "/")
 public class HomeController {
 
-    @Autowired
-    public UserService userService;
-
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model) {
         return "home";

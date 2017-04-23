@@ -7,4 +7,6 @@ public interface UserService {
 
     User createUser(NewUserDto newUserDto);
 
+    boolean isUsernameExist(String username);
+
 }

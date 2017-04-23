@@ -15,9 +15,11 @@ import pl.thewalkingcode.service.api.UserService;
 public class UserServiceImpl implements UserService {
 
     @Autowired
+    @Qualifier("userDao")
     private GenericDao<User, String> userRepository;
 
     @Autowired
+    @Qualifier("roleDao")
     private GenericDao<Role, Integer> roleRepository;
 
     @Override

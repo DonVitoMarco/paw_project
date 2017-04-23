@@ -11,7 +11,10 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.thymeleaf.dialect.IDialect;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
+import org.thymeleaf.spring4.dialect.SpringStandardDialect;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
@@ -19,11 +22,12 @@ import org.thymeleaf.templatemode.TemplateMode;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import javax.xml.crypto.Data;
+import java.util.HashSet;
 import java.util.Properties;
+import java.util.Set;
 
 @EnableWebMvc
 @Configuration
-@Import({SecurityConfig.class})
 @ComponentScan({"pl.thewalkingcode.*"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
@@ -39,7 +43,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public SpringTemplateEngine springTemplateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
-        templateEngine.setEnableSpringELCompiler(true);
+//        templateEngine.setEnableSpringELCompiler(true);
+        templateEngine.addDialect(new SpringSecurityDialect());
         return templateEngine;
     }
 

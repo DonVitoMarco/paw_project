@@ -15,15 +15,20 @@ import javax.sql.DataSource;
 @ComponentScan({"pl.thewalkingcode.*"})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private DataSource dataSource;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication().dataSource(dataSource)
-//                .usersByUsernameQuery("SELECT user.username, user.password, user.enabled FROM user WHERE user.username = ?")
-//                .authoritiesByUsernameQuery("SELECT user.username, role.roleName FROM role JOIN user ON user.username = role.user_username WHERE user_username = ?");
+//        DATABASE AUTHENTICATION CONFIG
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery("SELECT user.username, user.password, user.enabled FROM user WHERE user.username = ?")
+                .authoritiesByUsernameQuery("SELECT user.username, role.roleName FROM role JOIN user ON user.username = role.user_username WHERE user_username = ?");
 //                .passwordEncoder(passwordEncoder());
 
-         auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
-         auth.inMemoryAuthentication().withUser("admin").password("password").roles("ADMIN");
+//        MEMORY AUTHENTICATION CONFIG
+//         auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+//         auth.inMemoryAuthentication().withUser("admin").password("password").roles("ADMIN");
     }
 
     @Override
@@ -38,7 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().formLogin().loginPage("/login")
                 .and().csrf()
                 .and().exceptionHandling().accessDeniedPage("/denied");
-
     }
 
 }

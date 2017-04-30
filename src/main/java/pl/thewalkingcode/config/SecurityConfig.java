@@ -40,7 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/profile").access("hasRole('ROLE_USER')")
 
-                .and().formLogin().loginPage("/login")
+                .and().formLogin().loginPage("/login").permitAll()
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
                 .and().csrf()
                 .and().exceptionHandling().accessDeniedPage("/denied");
     }

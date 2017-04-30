@@ -43,4 +43,9 @@ public class UserServiceImpl implements UserService {
         return userRepository.read(username) != null;
     }
 
+    @Override
+    public User find(String pk) {
+        return userRepository.read(pk);
+    }
+
 }

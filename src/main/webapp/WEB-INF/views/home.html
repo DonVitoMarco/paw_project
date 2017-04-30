@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.springframework.org/security/tags">
+      xmlns:sec="http://www.springframework.org/security/tags" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <title>exchange</title>
@@ -37,7 +37,11 @@
             <ul class="right">
                 <li sec:authorize="isAnonymous()"><a href="/register" th:href="@{/register}"><i class="fa fa-user-plus" aria-hidden="true"></i> REGISTER</a></li>
                 <li sec:authorize="isAnonymous()"><a href="/login" th:href="@{/login}"><i class="fa fa-sign-in" aria-hidden="true"></i> LOGIN</a></li>
-                <li sec:authorize="isAuthenticated()"><a href="/logout" th:href="@{/logout}"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</a></li>
+                <li sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="POST">
+                        <button type="submit" class="menuBtn"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT</button>
+                    </form>
+                </li>
             </ul>
 
             <div class="clear"></div>

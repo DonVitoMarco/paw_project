@@ -105,6 +105,12 @@
             <artifactId>thymeleaf-extras-springsecurity4</artifactId>
             <version>${thymeleaf.version}</version>
         </dependency>
+        <!-- LIBRARIES -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.7.0</version>
+        </dependency>
         <!-- LOGGER -->
         <dependency>
             <groupId>org.slf4j</groupId>

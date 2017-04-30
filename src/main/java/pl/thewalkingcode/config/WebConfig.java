@@ -18,6 +18,7 @@ import org.thymeleaf.spring4.dialect.SpringStandardDialect;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+import pl.thewalkingcode.component.ScheduledTask;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;

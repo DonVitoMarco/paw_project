@@ -17,7 +17,10 @@ public class User implements Serializable {
 
     private boolean enabled;
 
-    @OneToMany(mappedBy = "user")
+    @OneToOne(mappedBy = "user")
+    private Account account;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Role> roles;
 
     public User() {
@@ -61,6 +64,14 @@ public class User implements Serializable {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
 }

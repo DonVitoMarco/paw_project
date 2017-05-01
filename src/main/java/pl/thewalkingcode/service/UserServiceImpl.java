@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.thewalkingcode.model.Account;
 import pl.thewalkingcode.model.Role;
 import pl.thewalkingcode.model.User;
 import pl.thewalkingcode.model.dto.NewUserDto;
 import pl.thewalkingcode.repository.GenericDao;
 import pl.thewalkingcode.service.api.UserService;
+
+import java.math.BigDecimal;
 
 @Service("userService")
 @Transactional
@@ -22,6 +25,10 @@ public class UserServiceImpl implements UserService {
     @Qualifier("roleDao")
     private GenericDao<Role, Integer> roleRepository;
 
+    @Autowired
+    @Qualifier("accountDao")
+    private GenericDao<Account, Integer> accountRepository;
+
     @Override
     public User createUser(NewUserDto newUserDto) {
         User user = new User();
@@ -34,6 +41,11 @@ public class UserServiceImpl implements UserService {
         role.setRoleName("USER");
         role.setUser(user);
         roleRepository.create(role);
+
+        Account account = new Account();
+        account.setWallet(BigDecimal.ZERO);
+        account.setUser(user);
+        accountRepository.create(account);
 
         return user;
     }

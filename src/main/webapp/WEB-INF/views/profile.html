@@ -15,6 +15,49 @@
 </head>
 
 <body>
-    <h1>PROFILE</h1>
+
+<div class="grid grid-pad">
+    <div class="col-1-1">
+        <div class="content">
+            <h1><i class="fa fa-gg-circle" aria-hidden="true"></i>EXCHANGE</h1>
+        </div>
+    </div>
+</div>
+
+<div class="grid grid-pad">
+    <div class="col-1-1">
+        <div class="content">
+            <ul class="left">
+                <li><a href="/" th:href="@{/}"><i class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
+            </ul>
+
+            <ul class="right">
+                <li>
+                    <form th:action="@{/logout}" method="POST">
+                        <button type="submit" class="menuBtn"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT
+                        </button>
+                    </form>
+                </li>
+            </ul>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<div class="grid grid-pad">
+    <div class="col-1-1">
+        <h3><i class="fa fa-cog" aria-hidden="true"></i> SETTINGS</h3>
+    </div>
+</div>
+
+<div class="grid grid-pad">
+    <div class="col-1-1">
+        <h3><i class="fa fa-money" aria-hidden="true"></i> WALLET</h3>
+    </div>
+</div>
+
+
+
 </body>
 </html>

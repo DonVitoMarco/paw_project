@@ -17,21 +17,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthenticationService authenticationService;
 
     @Autowired
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     public SecurityConfig(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        OWN IMPLEMENTATION
+//        OWN IMPLEMENTATION DATABASE AUTH
         auth.userDetailsService(authenticationService);
-
-//        DATABASE AUTHENTICATION CONFIG
-//        auth.jdbcAuthentication().dataSource(dataSource)
-//                .usersByUsernameQuery("SELECT user.username, user.password, user.enabled FROM user WHERE user.username = ?")
-//                .authoritiesByUsernameQuery("SELECT role.user_username, role.roleName FROM role WHERE role.user_username = ?");
-//                .authoritiesByUsernameQuery("SELECT user.username, role.roleName FROM role JOIN user ON user.username = role.user_username WHERE user_username = ?");
-//                .passwordEncoder(passwordEncoder());
 
 //        MEMORY AUTHENTICATION CONFIG
 //         auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
@@ -47,8 +41,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register").permitAll()
                 .antMatchers("/profile").access("hasRole('ROLE_USER')")
 
-//                .and().formLogin().loginPage("/login").permitAll()
-                .and().formLogin().permitAll()
+//               OWN LOGIN PAGE
+                .and().formLogin().loginPage("/login").permitAll()
+//                .and().formLogin().permitAll()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
 
                 .and().csrf();

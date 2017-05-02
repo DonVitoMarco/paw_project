@@ -22,9 +22,10 @@ public class ProfileController {
     @RequestMapping(method = RequestMethod.GET)
     public String profile(Model model) {
         String username = Utils.getCurrentUsername();
-//        User user = userService.find(username);
-//        model.addAttribute("username", user.getUsername());
-//        model.addAttribute("wallet", user.getAccount().getWallet().toString());
+        User user = userService.find(username);
+        model.addAttribute("username", user.getUsername());
+        model.addAttribute("email", user.getEmail());
+        model.addAttribute("wallet", user.getAccount().getWallet().toString());
         return "profile";
     }
 

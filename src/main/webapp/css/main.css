@@ -3,31 +3,35 @@ html, body {
     background-color: #fff;
 }
 
-.grid-pad {
+.grid-pad-border {
     border: 1px solid black;
     padding-top: 0;
     margin-top: 15px;
 }
 
-table {
+.grid-pad-padding {
+    padding: 20px;
+}
+
+#table-content table {
     width: 100%;
     border-collapse: collapse;
     margin: 10px 0;
 }
 
-td {
+#table-content td {
     padding: 10px 0 10px 20px;
 }
 
-tr:nth-child(odd) {
+#table-content tr:nth-child(odd) {
     background-color: #fafafa;
 }
 
-tr:nth-child(even) {
+#table-content tr:nth-child(even) {
     background-color: #e6e6e6;
 }
 
-tr:first-child td {
+#table-content tr:first-child td {
     font-weight: 600;
 }
 
@@ -85,4 +89,30 @@ a:hover {
 
 .menuBtn:focus {
     outline: 0;
+}
+
+.login-text-box h1 {
+    padding-left: 25px;
+    text-align: center;
+}
+
+.loginBtn {
+    background-color: transparent;
+    border: 1px solid black;
+    font-size: 16px;
+    padding: 2px 35px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.loginBtn:focus {
+    outline: 0;
+}
+
+.loginBtn:hover {
+    background-color: #ffb717;
+}
+
+.login-form table {
+    margin: 0 auto;
 }

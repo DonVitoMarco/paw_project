@@ -116,3 +116,21 @@ a:hover {
 .left-form table {
     margin: 0 auto;
 }
+
+.profile-btn {
+    background-color: transparent;
+    border: 1px solid black;
+    font-size: 16px;
+    padding: 2px 35px;
+    cursor: pointer;
+    margin: 10px 0 0 15px;
+}
+
+.profile-btn:focus {
+    outline: 0;
+}
+
+.profile-btn:hover {
+    background-color: #ffb717;
+    color: black;
+}

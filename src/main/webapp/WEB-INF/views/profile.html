@@ -50,6 +50,9 @@
         <h3><i class="fa fa-cog" aria-hidden="true"></i> SETTINGS</h3>
         <p>USERNAME: <span th:text="${username}">u</span></p>
         <p>EMAIL: <span th:text="${email}">e</span></p>
+        <p>
+            <a href="/profile/edit" th:href="@{/profile/edit}" class="profile-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT</a>
+        </p>
     </div>
 </div>
 
@@ -57,6 +60,9 @@
     <div class="col-1-1">
         <h3><i class="fa fa-money" aria-hidden="true"></i> WALLET</h3>
         <p>WALLET: <span th:text="${wallet}">w</span> PLN</p>
+        <p>
+            <a href="/profile/charge" th:href="@{/profile/charge}" class="profile-btn"><i class="fa fa-plus-circle" aria-hidden="true"></i> CHARGE</a>
+        </p>
     </div>
 </div>
 

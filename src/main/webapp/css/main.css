@@ -96,7 +96,7 @@ a:hover {
     text-align: center;
 }
 
-.loginBtn {
+.left-form-btn {
     background-color: transparent;
     border: 1px solid black;
     font-size: 16px;
@@ -105,14 +105,14 @@ a:hover {
     margin-top: 10px;
 }
 
-.loginBtn:focus {
+.left-form-btn:focus {
     outline: 0;
 }
 
-.loginBtn:hover {
+.left-form-btn:hover {
     background-color: #ffb717;
 }
 
-.login-form table {
+.left-form table {
     margin: 0 auto;
 }

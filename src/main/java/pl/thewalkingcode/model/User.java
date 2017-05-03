@@ -1,6 +1,10 @@
 package pl.thewalkingcode.model;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +22,7 @@ public class User implements Serializable {
     private boolean enabled;
 
     @OneToOne(mappedBy = "user")
+    @Cascade(CascadeType.ALL)
     private Account account;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)

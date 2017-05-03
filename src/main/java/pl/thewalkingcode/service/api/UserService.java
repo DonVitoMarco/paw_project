@@ -11,4 +11,6 @@ public interface UserService {
 
     User find(String pk);
 
+    User update(User user);
+
 }

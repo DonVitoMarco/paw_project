@@ -60,4 +60,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.read(pk);
     }
 
+    public User update(User user) {
+        return userRepository.update(user);
+    }
+
 }

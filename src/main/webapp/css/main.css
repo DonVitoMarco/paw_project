@@ -13,6 +13,10 @@ html, body {
     padding: 20px;
 }
 
+.section-border {
+    border: 1px solid black;
+}
+
 #table-content table {
     width: 100%;
     border-collapse: collapse;
@@ -133,4 +137,12 @@ a:hover {
 .profile-btn:hover {
     background-color: #ffb717;
     color: black;
+}
+
+.none-pad {
+    padding: 0;
+}
+
+.sections h3 {
+    margin-left: 15px;
 }

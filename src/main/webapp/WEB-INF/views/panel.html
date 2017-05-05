@@ -15,7 +15,6 @@
     <!-- CSS -->
     <link href="../../css/main.css" th:href="@{/css/main.css}" rel="stylesheet" type="text/css" media="all"/>
 </head>
-
 <body>
 
 <div class="grid grid-pad grid-pad-border">
@@ -32,7 +31,6 @@
             <ul class="left">
                 <li><a href="/" th:href="@{/}"><i class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
                 <li sec:authorize="isAuthenticated()"><a href="/profile" th:href="@{/profile}"><i class="fa fa-user-circle" aria-hidden="true"></i> MY PROFILE</a></li>
-                <li sec:authorize="isAuthenticated()"><a href="/panel" th:href="@{/panel}"><i class="fa fa-bar-chart" aria-hidden="true"></i> MY PANEL</a></li>
             </ul>
 
             <ul class="right">
@@ -50,18 +48,25 @@
     </div>
 </div>
 
-<div class="grid grid-pad grid-pad-border">
-    <div class="col-1-1">
-        <div id="main-content" class="content">
-            <p></p>
-            <div id="table-content">
+<div class="grid grid-pad none-pad sections" style="margin-top: 15px">
+    <div class="col-1-2">
+        <div class="content section-border">
+            <h3><i class="fa fa-gg-circle" aria-hidden="true"></i> EXCHANGE</h3>
+            <div id="main-content">
+                <p></p>
+                <div id="table-content">
+                </div>
             </div>
+        </div>
+    </div>
+    <div class="col-1-2 none-pad">
+        <div class="content section-border">
+            <h3><i class="fa fa-money" aria-hidden="true"></i> MY WALLET</h3>
         </div>
     </div>
 </div>
 
-
-<script src="../../scripts/ws-conn.js" th:src="@{/scripts/ws-conn.js}"></script>
+<script src="../../scripts/ws-conn-panel.js" th:src="@{/scripts/ws-conn-panel.js}"></script>
 
 </body>
 </html>

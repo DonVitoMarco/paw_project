@@ -28,7 +28,7 @@ function createTable(companies) {
 }
 
 function createHeader() {
-    var head = ['CODE', 'FULLNAME', 'CHANGE', 'PRICE'];
+    var head = ['CODE', 'FULLNAME', 'CHANGE', 'PRICE', 'ACTION'];
     var headRow = document.createElement('tr');
 
     for(var i = 0; i < head.length; i++) {
@@ -55,10 +55,14 @@ function createRow(company) {
     var price = document.createElement('td');
     price.innerHTML = company.price;
 
+    var action = document.createElement('td');
+    action.appendChild(createBuyButton(company.code));
+
     row.appendChild(code);
     row.appendChild(fullname);
     row.appendChild(change);
     row.appendChild(price);
+    row.appendChild(action);
 
     return row;
 }
@@ -75,4 +79,24 @@ function createChangeCell(element, value) {
     } else if (value === 0) {
         element.innerHTML = '<i class="fa fa-minus" aria-hidden="true"></i>';
     }
+}
+
+function createBuyButton(item) {
+    var button = document.createElement("button");
+    var attOnClick = document.createAttribute("onclick");
+    attOnClick.value = "buyForm(this.id)";
+    button.setAttributeNode(attOnClick);
+
+    var attId = document.createAttribute("id");
+    attId.value = "buy-button-" + item;
+    button.setAttributeNode(attId);
+    // button.classList.add("btn-cls");
+    button.innerHTML = 'BUY';
+
+    return button;
+}
+
+function buyForm(code) {
+    var codeVal = code.substring(11, code.length);
+    window.location.href = window.location.href + '/buy?' + codeVal;
 }

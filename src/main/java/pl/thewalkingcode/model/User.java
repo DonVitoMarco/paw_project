@@ -28,6 +28,9 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Role> roles;
 
+    @OneToMany(mappedBy = "user")
+    private List<UserTransaction> userTransactions;
+
     public User() {
     }
 

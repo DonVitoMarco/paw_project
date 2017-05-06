@@ -49,20 +49,26 @@ public class UserTransactionServiceImpl implements UserTransactionService {
     @Override
     public UserTransaction sell(SellTransactionDto sellTransactionDto) {
         UserTransaction ut = find(sellTransactionDto.getIdUserTranscation());
-
-        BigDecimal addToWallet = ut.getPrice().multiply(new BigDecimal(sellTransactionDto.getUnit()));
-        int newUnit = ut.getUnit() - sellTransactionDto.getUnit();
-        BigDecimal newAmount = ut.getPrice().multiply(new BigDecimal(newUnit));
-
-        ut.setUnit(newUnit);
-        ut.setAmount(newAmount);
-        UserTransaction userTransaction = userTransactionalRepository.update(ut);
-
         User user = userRepository.read(Utils.getCurrentUsername());
-        BigDecimal wallet = user.getAccount().getWallet();
-        user.getAccount().setWallet(wallet.add(addToWallet));
 
-        return userTransaction;
+        BigDecimal addToWallet = sellTransactionDto.getPrice().multiply(new BigDecimal(sellTransactionDto.getUnit()));
+
+        if (sellTransactionDto.getUnit() >= ut.getUnit()) {
+            user.getUserTransactions().remove(ut);
+            ut.setUser(null);
+            ut = userTransactionalRepository.update(ut);
+        } else {
+            int newUnit = ut.getUnit() - sellTransactionDto.getUnit();
+            BigDecimal newAmount = ut.getPrice().multiply(new BigDecimal(newUnit));
+            ut.setUnit(newUnit);
+            ut.setAmount(newAmount);
+            ut = userTransactionalRepository.update(ut);
+        }
+
+        user.getAccount().setWallet(user.getAccount().getWallet().add(addToWallet));
+
+        user = userRepository.update(user);
+        return ut;
     }
 
 }

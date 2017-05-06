@@ -62,7 +62,7 @@ public class PanelController {
 
     @RequestMapping(value = "/sell", method = RequestMethod.POST)
     public String postSellForm(@ModelAttribute("userTransaction") SellTransactionDto sellTransactionDto) {
-
+        userTransactionService.sell(sellTransactionDto);
         return "redirect:/panel";
     }
 

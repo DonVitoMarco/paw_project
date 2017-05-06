@@ -123,6 +123,12 @@
             <artifactId>slf4j-simple</artifactId>
             <version>${slf4j.simple.version}</version>
         </dependency>
+        <!-- PDF -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.5.11</version>
+        </dependency>
         <!-- PROVIDED -->
         <dependency>
             <groupId>javax.servlet</groupId>

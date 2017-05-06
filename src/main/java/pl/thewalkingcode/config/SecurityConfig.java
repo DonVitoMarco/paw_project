@@ -40,11 +40,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/profile").access("hasRole('ROLE_USER')")
-                .antMatchers("/charge").access("hasRole('ROLE_USER')")
+                .antMatchers("/profile/*").access("hasRole('ROLE_USER')")
+                .antMatchers("/panel").access("hasRole('ROLE_USER')")
+                .antMatchers("/panel/*").access("hasRole('ROLE_USER')")
 
 //               OWN LOGIN PAGE
                 .and().formLogin().loginPage("/login").permitAll()
-//                .and().formLogin().permitAll()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
 
                 .and().csrf();

@@ -9,7 +9,7 @@ ws.onmessage = function (msg) {
     var date = new Date(data.time);
 
     var mainElement = document.getElementById("main-content");
-    mainElement.firstElementChild.innerHTML = "Server time: " + date;
+    mainElement.firstElementChild.innerHTML = "Server time: " + date.toLocaleString();
 
     var tableElement = document.getElementById("table-content");
     tableElement.innerHTML = '';

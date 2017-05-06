@@ -91,4 +91,18 @@ public class UserTransaction implements Serializable {
         this.fullname = fullname;
     }
 
+    @Override
+    public String toString() {
+        return "UserTransaction{" +
+                "idUserTranscation=" + idUserTranscation +
+                ", user=" + user +
+                ", date=" + date +
+                ", price=" + price +
+                ", amount=" + amount +
+                ", unit=" + unit +
+                ", code='" + code + '\'' +
+                ", fullname='" + fullname + '\'' +
+                '}';
+    }
+
 }

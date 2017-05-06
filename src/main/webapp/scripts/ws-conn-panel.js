@@ -90,7 +90,7 @@ function createBuyButton(item) {
     var attId = document.createAttribute("id");
     attId.value = "buy-button-" + item;
     button.setAttributeNode(attId);
-    // button.classList.add("btn-cls");
+    button.classList.add("btn-panel");
     button.innerHTML = 'BUY';
 
     return button;

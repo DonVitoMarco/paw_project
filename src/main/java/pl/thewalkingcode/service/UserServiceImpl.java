@@ -7,11 +7,14 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.thewalkingcode.model.Account;
 import pl.thewalkingcode.model.Role;
 import pl.thewalkingcode.model.User;
+import pl.thewalkingcode.model.UserTransaction;
 import pl.thewalkingcode.model.dto.NewUserDto;
 import pl.thewalkingcode.repository.GenericDao;
 import pl.thewalkingcode.service.api.UserService;
+import pl.thewalkingcode.util.Utils;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service("userService")
 @Transactional
@@ -60,8 +63,15 @@ public class UserServiceImpl implements UserService {
         return userRepository.read(pk);
     }
 
+    @Override
     public User update(User user) {
         return userRepository.update(user);
     }
+
+    @Override
+    public List<UserTransaction> getUserTransaction(String username) {
+        User user = userRepository.read(username);
+        return user.getUserTransactions();
+}
 
 }

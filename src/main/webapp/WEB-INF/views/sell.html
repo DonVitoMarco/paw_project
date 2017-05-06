@@ -19,16 +19,19 @@
 
 <div class="grid grid-pad">
     <div class="col-1-3 grid-pad-border login-text-box">
-        <h1>BUY</h1>
+        <h1>SELL</h1>
     </div>
 </div>
 
 <div class="grid grid-pad">
     <div class="col-1-3 grid-pad-border grid-pad-padding">
 
-        <form name="f" th:object="${buyItem}" th:action="@{/panel/buy}" method="POST" class="left-form">
+        <form name="f" th:object="${userTransaction}" th:action="@{/panel/sell}" method="POST" class="left-form">
             <table>
-
+                <tr>
+                    <td><label for="id">ID TRANSACTION: </label></td>
+                    <td><input id="id" type="text" th:field="*{idUserTranscation}" name="id" required="required" value="" readonly></td>
+                </tr>
                 <tr>
                     <td><label for="code">CODE: </label></td>
                     <td><input id="code" type="text" th:field="*{code}" name="code" required="required" value="" readonly></td>
@@ -42,20 +45,22 @@
                     <td><input id="price" type="text" th:field="*{price}" name="price" required="required" value="" readonly></td>
                 </tr>
                 <tr>
+                    <td><label for="amount">AMOUNT: </label></td>
+                    <td><input id="amount" type="text" th:field="*{amount}" name="amount" required="required" value="" readonly></td>
+                </tr>
+                <tr>
                     <td><label for="unit">UNIT: </label></td>
                     <td><input id="unit" type="text" th:field="*{unit}" name="unit" required="required" value=""></td>
                 </tr>
                 <tr>
                     <td><a th:href="@{/panel}" class="profile-btn"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a></td>
-                    <td><button type="submit" class="btn left-form-btn" style="margin: 0;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy</button></td>
+                    <td><button type="submit" class="btn left-form-btn" style="margin: 0;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Sell</button></td>
                 </tr>
             </table>
         </form>
 
     </div>
 </div>
-
-<script src="../../scripts/buy-script.js" th:src="@{/scripts/buy-script.js}"></script>
 
 </body>
 </html>

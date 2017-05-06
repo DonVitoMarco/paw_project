@@ -28,7 +28,7 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<UserTransaction> userTransactions;
 
     public User() {
@@ -82,4 +82,11 @@ public class User implements Serializable {
         this.account = account;
     }
 
+    public List<UserTransaction> getUserTransactions() {
+        return userTransactions;
+    }
+
+    public void setUserTransactions(List<UserTransaction> userTransactions) {
+        this.userTransactions = userTransactions;
+    }
 }

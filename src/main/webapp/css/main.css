@@ -17,25 +17,31 @@ html, body {
     border: 1px solid black;
 }
 
-#table-content table {
+
+#table-content table,
+#wallet-table table {
     width: 100%;
     border-collapse: collapse;
     margin: 10px 0;
 }
 
-#table-content td {
+#table-content td,
+#wallet-table td {
     padding: 10px 0 10px 20px;
 }
 
-#table-content tr:nth-child(odd) {
+#table-content tr:nth-child(odd),
+#wallet-table tr:nth-child(odd){
     background-color: #fafafa;
 }
 
-#table-content tr:nth-child(even) {
+#table-content tr:nth-child(even),
+#wallet-table tr:nth-child(even) {
     background-color: #e6e6e6;
 }
 
-#table-content tr:first-child td {
+#table-content tr:first-child td,
+#wallet-table tr:first-child td {
     font-weight: 600;
 }
 
@@ -145,4 +151,25 @@ a:hover {
 
 .sections h3 {
     margin-left: 15px;
+}
+
+.btn-panel {
+    color: #ffffff;
+    background: #ffb717;
+    padding: 4px 8px 4px 8px;
+    text-decoration: none;
+    border: none;
+    margin: 0;
+    font-size: 14px;
+}
+
+.btn-panel:hover {
+    color: #ffffff;
+    background: #eda816;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-panel:focus {
+    outline: 0;
 }

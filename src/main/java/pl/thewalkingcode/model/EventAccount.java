@@ -16,6 +16,7 @@ public class EventAccount implements Serializable {
     private int idEvent;
 
     private String action;
+    private String company;
     private Integer unit;
     private BigDecimal price;
     private BigDecimal amount;
@@ -86,4 +87,13 @@ public class EventAccount implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
 }

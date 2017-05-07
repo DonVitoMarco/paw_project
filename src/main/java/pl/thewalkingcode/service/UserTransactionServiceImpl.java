@@ -93,6 +93,7 @@ public class UserTransactionServiceImpl implements UserTransactionService {
         eventAccount.setAmount(userTransaction.getAmount());
         eventAccount.setPrice(userTransaction.getPrice());
         eventAccount.setUnit(userTransaction.getUnit());
+        eventAccount.setCompany(userTransaction.getFullname());
         eventAccount.setWallet(user.getAccount().getWallet());
         eventAccount.setUsername(user.getUsername());
         userEventRepository.create(eventAccount);
@@ -105,6 +106,7 @@ public class UserTransactionServiceImpl implements UserTransactionService {
         eventAccount.setAmount(sellTransactionDto.getAmount());
         eventAccount.setPrice(sellTransactionDto.getPrice());
         eventAccount.setUnit(sellTransactionDto.getUnit());
+        eventAccount.setCompany(sellTransactionDto.getFullname());
         eventAccount.setWallet(user.getAccount().getWallet());
         eventAccount.setUsername(user.getUsername());
         userEventRepository.create(eventAccount);

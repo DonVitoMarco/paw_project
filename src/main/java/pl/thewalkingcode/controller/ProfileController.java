@@ -1,10 +1,5 @@
 package pl.thewalkingcode.controller;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
-import org.hibernate.boot.jaxb.SourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,16 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import pl.thewalkingcode.model.User;
 import pl.thewalkingcode.model.dto.ChargeWalletDto;
 import pl.thewalkingcode.model.dto.ProfileEditDto;
-import pl.thewalkingcode.pdf.PdfBuilder;
 import pl.thewalkingcode.service.api.UserService;
 import pl.thewalkingcode.util.Utils;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.POST;
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.Date;
 
 @Controller
 @RequestMapping(value = "/profile")
@@ -82,24 +71,6 @@ public class ProfileController {
             return "redirect:/profile?edit";
         }
         return "redirect:/edit?error";
-    }
-
-    @RequestMapping(value = "/pdf", method = RequestMethod.GET)
-    public void getPdfReport(HttpServletResponse response) {
-        response.setContentType("application/pdf");
-        try {
-            Document document = new Document();
-            PdfWriter.getInstance(document, response.getOutputStream());
-            document.open();
-            document.add(new Paragraph("Hello World"));
-            document.add(new Paragraph(new Date().toString()));
-            document.add(PdfBuilder.createTable());
-            document.close();
-        } catch (DocumentException de) {
-            de.printStackTrace();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
     }
 
 }

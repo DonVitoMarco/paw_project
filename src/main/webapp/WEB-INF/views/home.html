@@ -31,8 +31,9 @@
         <div class="content">
             <ul class="left">
                 <li><a href="/" th:href="@{/}"><i class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
-                <li sec:authorize="isAuthenticated()"><a href="/profile" th:href="@{/profile}"><i class="fa fa-user-circle" aria-hidden="true"></i> MY PROFILE</a></li>
-                <li sec:authorize="isAuthenticated()"><a href="/panel" th:href="@{/panel}"><i class="fa fa-bar-chart" aria-hidden="true"></i> MY PANEL</a></li>
+                <li sec:authorize="hasRole('ROLE_USER')"><a href="/profile" th:href="@{/profile}"><i class="fa fa-user-circle" aria-hidden="true"></i> MY PROFILE</a></li>
+                <li sec:authorize="hasRole('ROLE_USER')"><a href="/panel" th:href="@{/panel}"><i class="fa fa-bar-chart" aria-hidden="true"></i> MY PANEL</a></li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/panel" th:href="@{/report}"><i class="fa fa-file-code-o" aria-hidden="true"></i></i> GET REPORT</a></li>
             </ul>
 
             <ul class="right">

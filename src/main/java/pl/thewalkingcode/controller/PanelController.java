@@ -14,6 +14,7 @@ import pl.thewalkingcode.service.api.UserTransactionService;
 import pl.thewalkingcode.util.Utils;
 
 import javax.validation.Valid;
+import java.math.BigDecimal;
 
 @Controller
 @RequestMapping(value = "/panel")
@@ -30,6 +31,7 @@ public class PanelController {
     @RequestMapping(method = RequestMethod.GET)
     public String profile(Model model) {
         model.addAttribute("userItems", userService.getUserTransaction(Utils.getCurrentUsername()));
+        model.addAttribute("wallet", userService.find(Utils.getCurrentUsername()).getAccount().getWallet());
         return "panel";
     }
 
@@ -42,6 +44,10 @@ public class PanelController {
     @RequestMapping(value = "/buy", method = RequestMethod.POST)
     public String buyForm(@ModelAttribute("buyItem") UserBuyItemDto userBuyItemDTO) {
         User user = userService.find(Utils.getCurrentUsername());
+        BigDecimal amount = userBuyItemDTO.getPrice().multiply(new BigDecimal(userBuyItemDTO.getUnit()));
+        if(amount.compareTo(user.getAccount().getWallet()) == 1) {
+            return "redirect:/panel?error";
+        }
         userTransactionService.addTransaction(userBuyItemDTO, user);
         return "redirect:/panel";
     }

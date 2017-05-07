@@ -51,6 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //               OWN LOGIN PAGE
                 .and().formLogin().loginPage("/login").permitAll()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
+                .and().exceptionHandling().accessDeniedPage("/access")
 
                 .and().csrf();
     }

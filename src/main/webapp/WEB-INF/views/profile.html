@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.springframework.org/security/tags" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <title>exchange</title>
@@ -29,6 +30,7 @@
         <div class="content">
             <ul class="left">
                 <li><a href="/" th:href="@{/}"><i class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
+                <li sec:authorize="hasRole('ROLE_USER')"><a href="/panel" th:href="@{/panel}"><i class="fa fa-bar-chart" aria-hidden="true"></i> MY PANEL</a></li>
             </ul>
 
             <ul class="right">

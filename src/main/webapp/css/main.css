@@ -76,7 +76,7 @@ a {
 }
 
 a:hover {
-    color: #ffb717;
+
 }
 
 .green {
@@ -95,7 +95,7 @@ a:hover {
 }
 
 .menuBtn:hover {
-    color: #ffb717;
+
 }
 
 .menuBtn:focus {
@@ -121,7 +121,7 @@ a:hover {
 }
 
 .left-form-btn:hover {
-    background-color: #ffb717;
+
 }
 
 .left-form table {
@@ -142,7 +142,6 @@ a:hover {
 }
 
 .profile-btn:hover {
-    background-color: #ffb717;
     color: black;
 }
 
@@ -156,7 +155,6 @@ a:hover {
 
 .btn-panel {
     color: #ffffff;
-    background: #ffb717;
     padding: 4px 8px 4px 8px;
     text-decoration: none;
     border: none;
@@ -166,11 +164,35 @@ a:hover {
 
 .btn-panel:hover {
     color: #ffffff;
-    background: #eda816;
     text-decoration: none;
     cursor: pointer;
 }
 
 .btn-panel:focus {
     outline: 0;
+}
+
+/***********/
+.main-color {
+    background: #ffb717;
+}
+
+.main-color-hover:hover {
+    background-color: #ffb717;
+}
+
+.main-color-font-hover:hover {
+    color: #ffb717;
+}
+
+.second-main-color {
+    background: #23ff2a;
+}
+
+.second-main-color-hover:hover {
+    background-color: #23ff2a;
+}
+
+.second-main-color-font-hover:hover {
+    color: #23ff2a;
 }

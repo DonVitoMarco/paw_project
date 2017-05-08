@@ -53,14 +53,16 @@
                     <td><input id="unit" type="text" th:field="*{unit}" name="unit" required="required" value=""></td>
                 </tr>
                 <tr>
-                    <td><a th:href="@{/panel}" class="profile-btn"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a></td>
-                    <td><button type="submit" class="btn left-form-btn" style="margin: 0;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Sell</button></td>
+                    <td><a th:href="@{/panel}" class="profile-btn main-color-hover"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a></td>
+                    <td><button type="submit" class="btn left-form-btn main-color-hover" style="margin: 0;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Sell</button></td>
                 </tr>
             </table>
         </form>
 
     </div>
 </div>
+
+<script src="../../scripts/css-changer.js" th:src="@{/scripts/css-changer.js}"></script>
 
 </body>
 </html>

@@ -29,21 +29,21 @@
     <div class="col-1-1">
         <div class="content">
             <ul class="left">
-                <li><a href="/" th:href="@{/}"><i class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
-                <li sec:authorize="isAuthenticated()"><a href="/profile" th:href="@{/profile}"><i
+                <li><a class="main-color-font-hover" href="/" th:href="@{/}"><i class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
+                <li sec:authorize="isAuthenticated()"><a class="main-color-font-hover" href="/profile" th:href="@{/profile}"><i
                         class="fa fa-user-circle" aria-hidden="true"></i> MY PROFILE</a></li>
             </ul>
 
             <ul class="right">
-                <li sec:authorize="isAnonymous()"><a href="/register" th:href="@{/register}"><i class="fa fa-user-plus"
+                <li sec:authorize="isAnonymous()"><a class="main-color-font-hover" href="/register" th:href="@{/register}"><i class="fa fa-user-plus"
                                                                                                 aria-hidden="true"></i>
                     REGISTER</a></li>
-                <li sec:authorize="isAnonymous()"><a href="/login" th:href="@{/login}"><i class="fa fa-sign-in"
+                <li sec:authorize="isAnonymous()"><a class="main-color-font-hover" href="/login" th:href="@{/login}"><i class="fa fa-sign-in"
                                                                                           aria-hidden="true"></i> LOGIN</a>
                 </li>
                 <li sec:authorize="isAuthenticated()">
                     <form th:action="@{/logout}" method="POST">
-                        <button type="submit" class="menuBtn"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT
+                        <button type="submit" class="menuBtn main-color-font-hover"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT
                         </button>
                     </form>
                 </li>
@@ -84,7 +84,7 @@
                         <td th:text="${userItem.unit}"/>
                         <td th:text="${userItem.amount}"/>
                         <td>
-                            <a th:href="@{/panel/sell(id=${userItem.idUserTranscation})}" class="btn-panel">SELL</a>
+                            <a th:href="@{/panel/sell(id=${userItem.idUserTranscation})}" class="btn-panel main-color">SELL</a>
                         </td>
                     </tr>
                 </table>
@@ -95,6 +95,7 @@
 </div>
 
 <script src="../../scripts/ws-conn-panel.js" th:src="@{/scripts/ws-conn-panel.js}"></script>
+<script src="../../scripts/css-changer.js" th:src="@{/scripts/css-changer.js}"></script>
 
 </body>
 </html>

@@ -91,7 +91,14 @@ function createBuyButton(item) {
     attId.value = "buy-button-" + item;
     button.setAttributeNode(attId);
     button.classList.add("btn-panel");
-    button.innerHTML = 'BUY';
+    if(getCookie('color') === 'second') {
+        button.classList.add("second-main-color");
+        button.innerHTML = 'BUY';
+    } else {
+        button.classList.add("main-color");
+        button.innerHTML = 'BUY';
+    }
+
 
     return button;
 }
@@ -100,3 +107,4 @@ function buyForm(code) {
     var codeVal = code.substring(11, code.length);
     window.location.href = window.location.href + '/buy?' + codeVal;
 }
+

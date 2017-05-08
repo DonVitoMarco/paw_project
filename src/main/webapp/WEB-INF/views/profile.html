@@ -29,14 +29,14 @@
     <div class="col-1-1">
         <div class="content">
             <ul class="left">
-                <li><a href="/" th:href="@{/}"><i class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
-                <li sec:authorize="hasRole('ROLE_USER')"><a href="/panel" th:href="@{/panel}"><i class="fa fa-bar-chart" aria-hidden="true"></i> MY PANEL</a></li>
+                <li><a class="main-color-font-hover" href="/" th:href="@{/}"><i class="fa fa-home" aria-hidden="true"></i> HOME</a></li>
+                <li sec:authorize="hasRole('ROLE_USER')"><a class="main-color-font-hover" href="/panel" th:href="@{/panel}"><i class="fa fa-bar-chart" aria-hidden="true"></i> MY PANEL</a></li>
             </ul>
 
             <ul class="right">
                 <li>
                     <form th:action="@{/logout}" method="POST">
-                        <button type="submit" class="menuBtn"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT
+                        <button type="submit" class="menuBtn main-color-font-hover"><i class="fa fa-sign-out" aria-hidden="true"></i> LOGOUT
                         </button>
                     </form>
                 </li>
@@ -53,7 +53,7 @@
         <p>USERNAME: <span th:text="${username}">u</span></p>
         <p>EMAIL: <span th:text="${email}">e</span></p>
         <p>
-            <a href="/profile/edit" th:href="@{/profile/edit}" class="profile-btn"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT</a>
+            <a class="main-color-hover profile-btn" href="/profile/edit" th:href="@{/profile/edit}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> EDIT</a>
         </p>
     </div>
 </div>
@@ -63,11 +63,21 @@
         <h3><i class="fa fa-money" aria-hidden="true"></i> WALLET</h3>
         <p>WALLET: <span th:text="${wallet}">w</span> PLN</p>
         <p>
-            <a href="/profile/charge" th:href="@{/profile/charge}" class="profile-btn">
+            <a class="main-color-hover profile-btn" href="/profile/charge" th:href="@{/profile/charge}">
                 <i class="fa fa-plus-circle" aria-hidden="true"></i> CHARGE</a>
         </p>
     </div>
 </div>
+
+<div class="grid grid-pad grid-pad-border">
+    <div class="col-1-1">
+        <h3><i class="fa fa-cog" aria-hidden="true"></i> SETTINGS</h3>
+        <a href="#" onclick="saveColor('second')">SECOND</a>
+        <a href="#" onclick="saveColor('main')">MAIN</a>
+    </div>
+</div>
+
+<script src="../../scripts/css-changer.js" th:src="@{/scripts/css-changer.js}"></script>
 
 </body>
 </html>

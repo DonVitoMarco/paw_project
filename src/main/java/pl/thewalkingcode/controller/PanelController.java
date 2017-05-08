@@ -46,7 +46,7 @@ public class PanelController {
         User user = userService.find(Utils.getCurrentUsername());
         BigDecimal amount = userBuyItemDTO.getPrice().multiply(new BigDecimal(userBuyItemDTO.getUnit()));
         if(amount.compareTo(user.getAccount().getWallet()) == 1) {
-            return "redirect:/panel?error";
+            return "redirect:/buy?error";
         }
         userTransactionService.addTransaction(userBuyItemDTO, user);
         return "redirect:/panel";

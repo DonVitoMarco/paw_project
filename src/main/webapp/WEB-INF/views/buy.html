@@ -27,6 +27,10 @@
     <div class="col-1-3 grid-pad-border grid-pad-padding">
 
         <form name="f" th:object="${buyItem}" th:action="@{/panel/buy}" method="POST" class="left-form">
+            <div th:if="${param.error}" class="alert alert-error">
+                You don't have enough money.
+            </div>
+
             <table>
 
                 <tr>
@@ -43,7 +47,7 @@
                 </tr>
                 <tr>
                     <td><label for="unit">UNIT: </label></td>
-                    <td><input id="unit" type="text" th:field="*{unit}" name="unit" required="required" value=""></td>
+                    <td><input id="unit" type="number" th:field="*{unit}" name="unit" required="required" value=""></td>
                 </tr>
                 <tr>
                     <td><a th:href="@{/panel}" class="profile-btn main-color-hover"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a></td>

@@ -1,9 +1,14 @@
 package pl.thewalkingcode.model.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class NewUserDto {
 
+    @NotNull
     private String username;
+    @NotNull
     private String password;
+    @NotNull
     private String matchingPassword;
 
     public NewUserDto() {

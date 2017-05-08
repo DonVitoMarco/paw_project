@@ -50,7 +50,7 @@
                 </tr>
                 <tr>
                     <td><label for="unit">UNIT: </label></td>
-                    <td><input id="unit" type="text" th:field="*{unit}" name="unit" required="required" value=""></td>
+                    <td><input id="unit" type="number" th:field="*{unit}" name="unit" required="required" value=""></td>
                 </tr>
                 <tr>
                     <td><a th:href="@{/panel}" class="profile-btn main-color-hover"><i class="fa fa-caret-left" aria-hidden="true"></i> Back</a></td>
@@ -63,6 +63,7 @@
 </div>
 
 <script src="../../scripts/css-changer.js" th:src="@{/scripts/css-changer.js}"></script>
+<script src="../../scripts/sell-script.js" th:src="@{/scripts/sell-script.js}"></script>
 
 </body>
 </html>

@@ -204,3 +204,11 @@ a:hover {
 .second-main-color-font-hover:hover {
     color: #23ff2a;
 }
+
+.alert-error {
+    color: red;
+}
+
+.alert-success {
+    color: green;
+}

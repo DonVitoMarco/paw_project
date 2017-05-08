@@ -2,6 +2,7 @@ package pl.thewalkingcode.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.thewalkingcode.model.Account;
@@ -32,11 +33,14 @@ public class UserServiceImpl implements UserService {
     @Qualifier("accountDao")
     private GenericDao<Account, Integer> accountRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public User createUser(NewUserDto newUserDto) {
         User user = new User();
         user.setUsername(newUserDto.getUsername());
-        user.setPassword(newUserDto.getPassword());
+        user.setPassword(passwordEncoder.encode(newUserDto.getPassword()));
         user.setEnabled(true);
         user = userRepository.create(user);
 
